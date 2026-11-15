@@ -140,3 +140,24 @@ $env:INTENT_DATASET="crosswoz_gate_v2"
 - 商户库来自 CrossWOZ 数据集自带的 `database/`，属性由数据集作者构造，未经现实核验；
   因此所有指标衡量的是“与参考库的一致性”。
 - 大型文件（原始数据、模型权重、`.venv`）不入库，见 `.gitignore`。
+
+## 9. 没有模型权重怎么看结果
+
+仓库里已包含**逐条路由结果**，不需要重训就能核对结论：
+
+- `eval/ensemble_routing_400.jsonl`：400 条的 route / votes / min_p / 标签
+- `eval/ensemble_routing_3525.jsonl`：全量 3,525 条的 route 与置信度
+- `reports/dashboard.html`：直接双击打开，所有指标都由上面两份数据生成
+
+要完整复现（重新训练门控）：
+
+```powershell
+# 1) 下载基座模型（约 1.2 GB）
+#    仓库未入库权重，可从 hf-mirror 拉取
+curl.exe -L -o models/_pretrained/chinese-macbert-large/pytorch_model.bin `
+  https://hf-mirror.com/hfl/chinese-macbert-large/resolve/main/pytorch_model.bin
+
+# 2) 训练 4 个种子模型
+$env:INTENT_DATASET="crosswoz_gate_v2"; $env:INTENT_MODEL="models/_pretrained/chinese-macbert-large"
+foreach ($s in 7,13,21,33) { $env:INTENT_SEED="$s"; python train/finetune.py --epochs 6 }
+```
