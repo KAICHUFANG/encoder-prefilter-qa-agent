@@ -1,0 +1,99 @@
+{
+  "generated_at": "2026-11-13 18:33:15",
+  "kind": "offline",
+  "test_size": 60,
+  "model_dir": "C:\\Users\\xiong\\Desktop\\客服意图识别Agent\\models\\crosswoz_gate\\intent-bert",
+  "train_meta": {
+    "trained_at": "2026-11-13 18:33:03",
+    "base_model": "C:\\Users\\xiong\\Desktop\\客服意图识别Agent\\models\\_pretrained\\chinese-macbert-base",
+    "best_epoch": 3,
+    "best_dev_macro_f1": 0.7396,
+    "epochs": 5,
+    "batch_size": 16,
+    "lr": 2e-05,
+    "max_len": 64,
+    "device": "cuda",
+    "class_weight": true,
+    "class_weights": {
+      "0": 2.3729,
+      "1": 0.6335
+    },
+    "train_size": 280,
+    "dev_size": 60,
+    "labels": [
+      0,
+      1
+    ]
+  },
+  "latency_ms_per_item": 8.33,
+  "metrics": {
+    "accuracy": 0.8333,
+    "macro_f1": 0.7869,
+    "weighted_f1": 0.8234,
+    "labels": [
+      0,
+      1
+    ],
+    "per_class_f1": {
+      "0": 0.6875,
+      "1": 0.8864
+    },
+    "support": {
+      "0": 19,
+      "1": 41
+    },
+    "confusion": {
+      "labels": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          11,
+          8
+        ],
+        [
+          2,
+          39
+        ]
+      ]
+    },
+    "total": 60,
+    "top_confusions": [
+      {
+        "true": 0,
+        "pred": 1,
+        "count": 8
+      },
+      {
+        "true": 1,
+        "pred": 0,
+        "count": 2
+      }
+    ]
+  },
+  "baseline": {
+    "majority": {
+      "name": "多数类基线",
+      "predict": 1,
+      "accuracy": 0.6833,
+      "macro_f1": 0.4059,
+      "weighted_f1": 0.5548,
+      "per_class_f1": {
+        "0": 0.0,
+        "1": 0.8119
+      }
+    },
+    "tfidf_logreg": {
+      "name": "TF-IDF + 逻辑回归",
+      "fit_seconds": 0.0,
+      "accuracy": 0.8,
+      "macro_f1": 0.7689,
+      "weighted_f1": 0.8,
+      "per_class_f1": {
+        "0": 0.6842,
+        "1": 0.8537
+      }
+    }
+  }
+}

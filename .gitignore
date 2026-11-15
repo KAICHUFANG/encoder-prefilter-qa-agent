@@ -1,0 +1,24 @@
+# 依赖与环境
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# 大型数据与模型（不入库）
+data/raw/
+models/
+data/*/vectors.npz
+data/*/vector_docs.jsonl
+
+# 本地配置与密钥
+.env
+*.local
+
+# 训练/评测的中间产物
+eval/*_v[0-9].jsonl
+*.log
+
+# 系统文件
+Thumbs.db
+.DS_Store

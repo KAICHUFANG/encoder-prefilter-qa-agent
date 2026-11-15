@@ -1,0 +1,18 @@
+{
+  "dataset": "crosswoz",
+  "coverage_floor": 0.8,
+  "in_domain": {
+    "n": 3525,
+    "mean": 0.977,
+    "p5": 0.885,
+    "false_block_rate": 0.0091
+  },
+  "ood": {
+    "n": 32,
+    "mean": 0.576,
+    "detect_rate": 0.8438,
+    "wrong": 26,
+    "high_conf_wrong": 11,
+    "blocked": 8
+  }
+}

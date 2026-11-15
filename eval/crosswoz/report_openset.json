@@ -1,0 +1,20 @@
+{
+  "in_domain_n": 3525,
+  "ood_n": 32,
+  "A_base": {
+    "acc": 0.9523,
+    "ood_high_conf_wrong": 13,
+    "ood_wrong": 26
+  },
+  "B_coverage_guard": {
+    "acc": 0.9523,
+    "ood_detected": 0.8438
+  },
+  "C_openset": {
+    "acc": 0.9464,
+    "in_domain_unknown_rate": 0.0,
+    "ood_detected": 0.0312,
+    "ood_high_conf_wrong": 0,
+    "ood_wrong": 23
+  }
+}

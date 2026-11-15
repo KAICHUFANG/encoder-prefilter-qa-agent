@@ -1,0 +1,344 @@
+{
+  "metric": "syntax_invariance",
+  "definition": "同一意思的 5 种不同说法中，预测完全一致的组所占比例",
+  "runs": [
+    {
+      "label": "CrossWOZ + rbt3（3 层 / 38M）",
+      "dataset": "crosswoz",
+      "model_dir": "models/crosswoz/intent-bert-rbt3",
+      "groups": 6,
+      "consistent_groups": 1,
+      "invariance": 0.1667
+    },
+    {
+      "label": "CrossWOZ + MacBERT（12 层 / 102M）",
+      "dataset": "crosswoz",
+      "model_dir": "models/crosswoz/intent-bert",
+      "groups": 6,
+      "consistent_groups": 0,
+      "invariance": 0.0
+    },
+    {
+      "label": "MASSIVE + MacBERT（12 层 / 102M）",
+      "dataset": "massive",
+      "model_dir": "models/massive/intent-bert",
+      "groups": 6,
+      "consistent_groups": 6,
+      "invariance": 1.0
+    }
+  ],
+  "detail": {
+    "CrossWOZ + rbt3（3 层 / 38M）": {
+      "餐馆附近找酒店": {
+        "predictions": [
+          "餐馆",
+          "餐馆",
+          "餐馆",
+          "酒店",
+          "餐馆"
+        ],
+        "confidences": [
+          0.9969,
+          0.9979,
+          0.7312,
+          0.7084,
+          0.9969
+        ],
+        "consistent": false
+      },
+      "餐馆附近找景点": {
+        "predictions": [
+          "餐馆",
+          "餐馆",
+          "餐馆",
+          "餐馆",
+          "餐馆"
+        ],
+        "confidences": [
+          0.9974,
+          0.9986,
+          0.9884,
+          0.9981,
+          0.9967
+        ],
+        "consistent": true
+      },
+      "酒店附近找餐馆": {
+        "predictions": [
+          "景点",
+          "餐馆",
+          "景点",
+          "餐馆",
+          "酒店"
+        ],
+        "confidences": [
+          0.4447,
+          0.8253,
+          0.7339,
+          0.9981,
+          0.9992
+        ],
+        "consistent": false
+      },
+      "酒店附近找景点": {
+        "predictions": [
+          "酒店",
+          "酒店",
+          "景点",
+          "景点",
+          "酒店"
+        ],
+        "confidences": [
+          0.4606,
+          0.9205,
+          0.5824,
+          0.999,
+          0.9992
+        ],
+        "consistent": false
+      },
+      "景点附近找餐馆": {
+        "predictions": [
+          "景点",
+          "餐馆",
+          "景点",
+          "餐馆",
+          "景点"
+        ],
+        "confidences": [
+          0.9917,
+          0.9976,
+          0.9231,
+          0.9983,
+          0.9992
+        ],
+        "consistent": false
+      },
+      "景点附近找酒店": {
+        "predictions": [
+          "景点",
+          "景点",
+          "景点",
+          "酒店",
+          "景点"
+        ],
+        "confidences": [
+          0.9991,
+          0.9988,
+          0.9973,
+          0.9972,
+          0.9992
+        ],
+        "consistent": false
+      }
+    },
+    "CrossWOZ + MacBERT（12 层 / 102M）": {
+      "餐馆附近找酒店": {
+        "predictions": [
+          "餐馆",
+          "餐馆",
+          "餐馆",
+          "酒店",
+          "餐馆"
+        ],
+        "confidences": [
+          0.9964,
+          0.9979,
+          0.9936,
+          0.9983,
+          0.998
+        ],
+        "consistent": false
+      },
+      "餐馆附近找景点": {
+        "predictions": [
+          "餐馆",
+          "餐馆",
+          "餐馆",
+          "景点",
+          "餐馆"
+        ],
+        "confidences": [
+          0.9983,
+          0.9387,
+          0.9962,
+          0.9965,
+          0.9984
+        ],
+        "consistent": false
+      },
+      "酒店附近找餐馆": {
+        "predictions": [
+          "酒店",
+          "酒店",
+          "酒店",
+          "餐馆",
+          "酒店"
+        ],
+        "confidences": [
+          0.9974,
+          0.9981,
+          0.993,
+          0.9915,
+          0.9959
+        ],
+        "consistent": false
+      },
+      "酒店附近找景点": {
+        "predictions": [
+          "酒店",
+          "酒店",
+          "酒店",
+          "景点",
+          "酒店"
+        ],
+        "confidences": [
+          0.9975,
+          0.9922,
+          0.9943,
+          0.9973,
+          0.9981
+        ],
+        "consistent": false
+      },
+      "景点附近找餐馆": {
+        "predictions": [
+          "景点",
+          "景点",
+          "景点",
+          "餐馆",
+          "景点"
+        ],
+        "confidences": [
+          0.9975,
+          0.9552,
+          0.9944,
+          0.9985,
+          0.9939
+        ],
+        "consistent": false
+      },
+      "景点附近找酒店": {
+        "predictions": [
+          "景点",
+          "景点",
+          "景点",
+          "酒店",
+          "景点"
+        ],
+        "confidences": [
+          0.9975,
+          0.9974,
+          0.9965,
+          0.9981,
+          0.9972
+        ],
+        "consistent": false
+      }
+    },
+    "MASSIVE + MacBERT（12 层 / 102M）": {
+      "alarm": {
+        "predictions": [
+          "alarm",
+          "alarm",
+          "alarm",
+          "alarm",
+          "alarm"
+        ],
+        "confidences": [
+          0.9895,
+          0.9914,
+          0.9898,
+          0.9914,
+          0.9908
+        ],
+        "consistent": true
+      },
+      "weather": {
+        "predictions": [
+          "weather",
+          "weather",
+          "weather",
+          "weather",
+          "weather"
+        ],
+        "confidences": [
+          0.9911,
+          0.992,
+          0.9895,
+          0.9915,
+          0.9888
+        ],
+        "consistent": true
+      },
+      "music": {
+        "predictions": [
+          "play",
+          "play",
+          "play",
+          "play",
+          "play"
+        ],
+        "confidences": [
+          0.9733,
+          0.9882,
+          0.9756,
+          0.9893,
+          0.989
+        ],
+        "consistent": true
+      },
+      "transport": {
+        "predictions": [
+          "transport",
+          "transport",
+          "transport",
+          "transport",
+          "transport"
+        ],
+        "confidences": [
+          0.9825,
+          0.986,
+          0.9873,
+          0.9832,
+          0.9742
+        ],
+        "consistent": true
+      },
+      "takeaway": {
+        "predictions": [
+          "takeaway",
+          "takeaway",
+          "takeaway",
+          "takeaway",
+          "takeaway"
+        ],
+        "confidences": [
+          0.9921,
+          0.9908,
+          0.9918,
+          0.9918,
+          0.9921
+        ],
+        "consistent": true
+      },
+      "calendar": {
+        "predictions": [
+          "calendar",
+          "calendar",
+          "calendar",
+          "calendar",
+          "calendar"
+        ],
+        "confidences": [
+          0.9875,
+          0.9871,
+          0.9861,
+          0.9864,
+          0.985
+        ],
+        "consistent": true
+      }
+    }
+  }
+}

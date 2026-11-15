@@ -1,0 +1,13 @@
+{
+  "dataset": "crosswoz",
+  "total": 600,
+  "modes": {
+    "kb": 521,
+    "llm": 41,
+    "kb_miss": 38
+  },
+  "no_llm_rate": 0.8683,
+  "kb_route_accuracy": 0.9463,
+  "kb_latency_median_ms": 27.0,
+  "intent_errors": 29
+}

@@ -1,0 +1,330 @@
+{
+  "generated_at": "2026-11-05 16:33:28",
+  "test_size": 3525,
+  "assumptions": {
+    "llm_ms": 1200,
+    "llm_tokens": 1500,
+    "local_ms": 20,
+    "local_tokens": 0
+  },
+  "by_action": {
+    "kb": 3292,
+    "template": 156,
+    "llm": 77
+  },
+  "no_llm_rate": 0.9782,
+  "estimated": {
+    "latency_ms_all_llm": 4230000,
+    "latency_ms_routed": 161360,
+    "tokens_all_llm": 5287500,
+    "tokens_routed": 115500
+  },
+  "misrouting": {
+    "dangerous": 7,
+    "cheap": 4,
+    "to_human": 0,
+    "needs_review": 100
+  },
+  "samples": [
+    {
+      "text": "你好啊，我要找一个游玩时长1小时 - 2小时的景点游玩，给点建议呗。",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9993,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "可以，全聚德烤鸭店(清华园店)周边还有什么餐馆？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9987,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好的，请帮我找一家酒店最低价格在500-600元之间。",
+      "true_intent": "酒店",
+      "pred_intent": "酒店",
+      "confidence": 0.9996,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "那有没有人均消费是150-500元，而且可以吃到一品东坡肉的餐馆呢？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9989,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好的，餐馆周边有酒店么？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9976,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "行啊，就去这而呗，知道这个餐馆周边都有哪些景点吗？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9984,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "你好，我想找一个评分是4.5分以上，可以游玩3小时 - 5小时的景点，有合适的推荐吗？",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9995,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "恩。海底捞火锅(牡丹园店)这家餐馆的附近还有啥好吃的餐馆吗？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9988,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好的，知道了，谢谢",
+      "true_intent": "General",
+      "pred_intent": "General",
+      "confidence": 0.9991,
+      "true_action": "template",
+      "action": "template",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "恩。恭王府这个景点的电话是啥啊？",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9994,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好的，吃完饭我想带女友找一家有接机服务和公共区域和部分房间提供wifi的舒适型酒店住宿，给我推荐一家吧。",
+      "true_intent": "酒店",
+      "pred_intent": "酒店",
+      "confidence": 0.9995,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "你好，请帮我推荐一个可游玩1小时的景点吧！",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9992,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "游玩昆明湖之后，我打算和同学一起吃香辣牛肉面，有没有评分4分以上的餐馆呢？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9981,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "密云人间花海薰衣草庄园看着真心不错，它的附近有吃饭的地方吗，我俩这出来一回，玩好也要吃好。",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9992,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好，那我就去金盛强世界花卉创意园吧，这个景点可以玩3小时 - 6小时吗？",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9994,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好的，请给我推荐一家人均消费100-150元的餐馆吃宫爆鸡丁这道菜，谢谢了。",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9988,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "你好，能帮我找一个游玩时长是2小时的景点吗？",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9992,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "不错啊，那它周边有景点吗？",
+      "true_intent": "餐馆",
+      "pred_intent": "酒店",
+      "confidence": 0.5896,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "我要去月坛公园这个景点游玩，请告诉景点周边都有哪些餐馆啊?",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9994,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "你好，我们同学要聚餐。请帮我推荐一家评分是4分以上的餐馆。",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.999,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "这家酒店是否有会议室和免费市内电话？",
+      "true_intent": "酒店",
+      "pred_intent": "酒店",
+      "confidence": 0.9982,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好的。这家餐馆的附近有啥好玩的景点吗？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9981,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "我就是闲溜达，去世界公园就行，这个景点的游玩时间是多久？",
+      "true_intent": "景点",
+      "pred_intent": "景点",
+      "confidence": 0.9994,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "那好吧，安排好住的地方，我想找个人均消费100-150元，能吃到经典巨无霸的餐馆吃饭，可以给我安排一个吗？",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9992,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "太完美了，这个餐馆的营业时间是咋样的，我们好安排好我们的行程。",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9987,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "哦，太感谢了！",
+      "true_intent": "General",
+      "pred_intent": "General",
+      "confidence": 0.9991,
+      "true_action": "template",
+      "action": "template",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "收到，最后我们要从云峰山到新石器烤肉(通州北苑店)去，打出租车你知道车型和车牌吗？",
+      "true_intent": "出租",
+      "pred_intent": "出租",
+      "confidence": 0.9998,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "北京畅悦时尚酒店(原乐活酒店)的电话是多少呢？",
+      "true_intent": "酒店",
+      "pred_intent": "酒店",
+      "confidence": 0.9995,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "也挺便宜的，好的吧，那它周边有啥玩的地方吗？我就想方便点，吃完饭直接去玩了。",
+      "true_intent": "餐馆",
+      "pred_intent": "餐馆",
+      "confidence": 0.9988,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "好的，溜达完了给我找一个5分的酒店。",
+      "true_intent": "酒店",
+      "pred_intent": "酒店",
+      "confidence": 0.999,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+[project]
+name = "cs-intent-agent"
+version = "0.1.0"
+description = "客服意图识别服务：给坐席判断一句话该走哪条处理路径"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.30",
+    "transformers>=4.44",
+    "torch>=2.3",
+    "scikit-learn>=1.5",
+    "numpy>=1.26",
+    "ijson>=3.6.0",
+]
+
+# 用 CUDA 版 torch：默认 PyPI 的 Windows wheel 是 CPU 版（torch 里没有任何 CUDA kernel）。
+# 不写这段的话，`uv run` 每次都会按 lockfile 把 CUDA 版回滚成 CPU 版——
+# 表现就是"装了 GPU 版但训练还是慢在 CPU 上"。
+[tool.uv]
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu128" }

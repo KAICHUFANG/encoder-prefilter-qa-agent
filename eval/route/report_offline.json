@@ -1,0 +1,126 @@
+{
+  "generated_at": "2026-11-12 17:56:17",
+  "kind": "offline",
+  "test_size": 6032,
+  "model_dir": "C:\\Users\\xiong\\Desktop\\客服意图识别Agent\\models\\route\\intent-bert",
+  "train_meta": {
+    "trained_at": "2026-11-12 17:56:02",
+    "base_model": "C:\\Users\\xiong\\Desktop\\客服意图识别Agent\\models\\_pretrained\\chinese-macbert-base",
+    "best_epoch": 3,
+    "best_dev_macro_f1": 1.0,
+    "epochs": 3,
+    "batch_size": 64,
+    "lr": 2e-05,
+    "max_len": 64,
+    "device": "cuda",
+    "class_weight": true,
+    "class_weights": {
+      "ask": 9.7826,
+      "code": 0.2942,
+      "extract": 33.0882,
+      "other": 2.1324
+    },
+    "train_size": 31500,
+    "dev_size": 2739,
+    "labels": [
+      "ask",
+      "code",
+      "extract",
+      "other"
+    ]
+  },
+  "latency_ms_per_item": 1.03,
+  "metrics": {
+    "accuracy": 0.9998,
+    "macro_f1": 0.9722,
+    "weighted_f1": 0.9998,
+    "labels": [
+      "ask",
+      "code",
+      "extract",
+      "other"
+    ],
+    "per_class_f1": {
+      "ask": 1.0,
+      "code": 0.9999,
+      "extract": 0.8889,
+      "other": 1.0
+    },
+    "support": {
+      "ask": 105,
+      "code": 5134,
+      "extract": 5,
+      "other": 788
+    },
+    "confusion": {
+      "labels": [
+        "ask",
+        "code",
+        "extract",
+        "other"
+      ],
+      "matrix": [
+        [
+          105,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          5134,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          788
+        ]
+      ]
+    },
+    "total": 6032,
+    "top_confusions": [
+      {
+        "true": "extract",
+        "pred": "code",
+        "count": 1
+      }
+    ]
+  },
+  "baseline": {
+    "majority": {
+      "name": "多数类基线",
+      "predict": "code",
+      "accuracy": 0.8511,
+      "macro_f1": 0.2299,
+      "weighted_f1": 0.7827,
+      "per_class_f1": {
+        "ask": 0.0,
+        "code": 0.9196,
+        "extract": 0.0,
+        "other": 0.0
+      }
+    },
+    "tfidf_logreg": {
+      "name": "TF-IDF + 逻辑回归",
+      "fit_seconds": 0.9,
+      "accuracy": 0.9998,
+      "macro_f1": 0.9722,
+      "weighted_f1": 0.9998,
+      "per_class_f1": {
+        "ask": 1.0,
+        "code": 0.9999,
+        "extract": 0.8889,
+        "other": 1.0
+      }
+    }
+  }
+}

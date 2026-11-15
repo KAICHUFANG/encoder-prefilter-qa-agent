@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-11-12 19:38:36",
+  "kind": "offline",
+  "test_size": 6032,
+  "model_dir": "C:\\Users\\xiong\\Desktop\\客服意图识别Agent\\models\\gate\\intent-bert",
+  "train_meta": {
+    "trained_at": "2026-11-12 19:37:04",
+    "base_model": "C:\\Users\\xiong\\Desktop\\客服意图识别Agent\\models\\_pretrained\\chinese-macbert-base",
+    "best_epoch": 3,
+    "best_dev_macro_f1": 1.0,
+    "epochs": 3,
+    "batch_size": 64,
+    "lr": 2e-05,
+    "max_len": 64,
+    "device": "cuda",
+    "class_weight": true,
+    "class_weights": {
+      "0": 0.5713,
+      "1": 4.0066
+    },
+    "train_size": 31500,
+    "dev_size": 2739,
+    "labels": [
+      0,
+      1
+    ]
+  },
+  "latency_ms_per_item": 1.01,
+  "metrics": {
+    "accuracy": 0.9998,
+    "macro_f1": 0.9996,
+    "weighted_f1": 0.9998,
+    "labels": [
+      0,
+      1
+    ],
+    "per_class_f1": {
+      "0": 0.9999,
+      "1": 0.9994
+    },
+    "support": {
+      "0": 5239,
+      "1": 793
+    },
+    "confusion": {
+      "labels": [
+        0,
+        1
+      ],
+      "matrix": [
+        [
+          5239,
+          0
+        ],
+        [
+          1,
+          792
+        ]
+      ]
+    },
+    "total": 6032,
+    "top_confusions": [
+      {
+        "true": 1,
+        "pred": 0,
+        "count": 1
+      }
+    ]
+  },
+  "baseline": null
+}

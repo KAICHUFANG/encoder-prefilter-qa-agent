@@ -1,0 +1,16 @@
+[
+  {
+    "model": "rbt3 (3层/38M)",
+    "acc": 0.9523,
+    "syntax_invariance": 0.1667,
+    "ood_low_conf": 0.2381,
+    "ood_unknown": 0.0
+  },
+  {
+    "model": "MacBERT (12层/102M)",
+    "acc": 0.9512,
+    "syntax_invariance": 0.0,
+    "ood_low_conf": 0.3333,
+    "ood_unknown": 0.0
+  }
+]

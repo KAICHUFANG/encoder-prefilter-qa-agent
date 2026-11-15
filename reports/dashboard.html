@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>encoder-only 预筛 · 门控实验面板</title>
+<style>
+  :root { --bg:#0f1115; --card:#171a21; --line:#262b35; --txt:#e6e9ef; --dim:#9aa4b2;
+          --green:#3fb950; --amber:#d29922; --red:#f85149; --blue:#58a6ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--txt);
+          font:14px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif; }
+  .wrap { max-width:1180px; margin:0 auto; padding:28px 24px 60px; }
+  h1 { font-size:22px; margin:0 0 6px; }
+  .sub { color:var(--dim); font-size:13px; margin-bottom:22px; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:22px; }
+  .kpi { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; }
+  .kpi .label { color:var(--dim); font-size:12px; }
+  .kpi .value { font-size:28px; font-weight:600; margin:6px 0 4px; }
+  .kpi .hint { color:var(--dim); font-size:11px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px;
+           padding:18px; margin-bottom:18px; }
+  .card h2 { font-size:15px; margin:0 0 12px; }
+  .bar-row { display:grid; grid-template-columns:170px 1fr 140px; gap:12px; align-items:center;
+              margin:6px 0; font-size:13px; }
+  .bar-track { background:#0c0e12; border-radius:6px; height:16px; overflow:hidden; }
+  .bar-fill { display:block; height:100%; border-radius:6px; }
+  .bar-value { color:var(--dim); font-size:12px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th,td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { color:var(--dim); font-weight:500; font-size:12px; }
+  .mono { font-family:ui-monospace,Consolas,monospace; font-size:12px; color:#b9c2cf; }
+  .note { color:var(--dim); font-size:12px; margin-top:10px; }
+</style></head><body><div class="wrap">
+  <h1>encoder-only 预筛 · 门控实验面板</h1>
+  <div class="sub">CrossWOZ 真实问句 400 条（留出 120）· DeepSeek agent 判官标注 · 4×MacBERT-large 集成（4/4 一致且 p≥0.90）</div>
+
+  <div class="kpis">
+    <div class="kpi"><div class="label">错给代码（危险）</div><div class="value" style="color:var(--red)">7.5%</div>
+      <div class="hint">占全部请求 · 9/120</div></div>
+    <div class="kpi"><div class="label">代码路由准确率</div><div class="value" style="color:var(--green)">80%</div>
+      <div class="hint">走代码 45 条中答对</div></div>
+    <div class="kpi"><div class="label">覆盖率</div><div class="value">38%</div>
+      <div class="hint">45/120 请求由代码处理、0 token</div></div>
+    <div class="kpi"><div class="label">判定延时</div><div class="value">77<span style="font-size:14px"> ms</span></div>
+      <div class="hint">4 模型串行 · p95 111 ms</div></div>
+  </div>
+
+  <div class="card"><h2>判定分布（留出 120 条）</h2>
+    <div class="bar-row"><span class="bar-label">正确给代码</span><span class="bar-track"><span class="bar-fill" style="width:30.0%;background:var(--green)"></span></span><span class="bar-value">36（30.0%）</span></div>
+    <div class="bar-row"><span class="bar-label">错给代码（危险）</span><span class="bar-track"><span class="bar-fill" style="width:7.5%;background:var(--red)"></span></span><span class="bar-value">9（7.5%）</span></div>
+    <div class="bar-row"><span class="bar-label">正确给模型</span><span class="bar-track"><span class="bar-fill" style="width:38.3%;background:var(--blue)"></span></span><span class="bar-value">46（38.3%）</span></div>
+    <div class="bar-row"><span class="bar-label">该给代码却给模型（浪费）</span><span class="bar-track"><span class="bar-fill" style="width:24.2%;background:var(--amber)"></span></span><span class="bar-value">29（24.2%）</span></div>
+    <div class="note">关键指标是红色那条：<b>只有 7.5% 的请求会被代码答错</b>。宁可多交模型（黄色 24.2%），也不要把错误答案放出去。</div>
+  </div>
+
+  <div class="card"><h2>放行规则对比</h2>
+    <table><thead><tr><th>规则</th><th>走代码</th><th>覆盖率</th><th>路由准确率</th><th>错给代码（占全部）</th></tr></thead>
+    <tbody><tr><td>4/4 一致 + p≥0.90（当前）</td><td>45</td><td>38%</td><td>80%</td><td>7.5%</td></tr>
+<tr><td>4/4 一致（不限置信度）</td><td>60</td><td>50%</td><td>73%</td><td>13.3%</td></tr>
+<tr><td>≥3/4 判代码</td><td>75</td><td>62%</td><td>71%</td><td>18.3%</td></tr>
+<tr><td>≥2/4 判代码</td><td>88</td><td>73%</td><td>69%</td><td>22.5%</td></tr></tbody></table>
+    <div class="note">放宽投票能提高覆盖率，但错误率同步上升，所以当前用最严的 4/4 + 0.90。</div>
+  </div>
+
+  <div class="card"><h2>9 条错给代码的案例</h2>
+    <table><thead><tr><th>用户问题</th><th>代码回答（截断）</th><th>判官结论</th><th>min P</th></tr></thead>
+    <tbody><tr><td>真不错，你知道这个餐馆在哪里吗？</td><td class='mono'>天安门广场：地址 北京市东城区长安街（天安门和正阳门之间）</td><td>用户问餐馆地址，代码答的是天安门广场地址，答非所问</td><td class='mono'>0.99</td></tr>
+<tr><td>这家餐馆有什么酒店吗？</td><td class='mono'>是，有 1133 家满足条件。
+找到 1133 家酒店，按评分推荐前 3 家：
+1. 北京丰荣君华酒店｜评分 5.0
+2</td><td>周边酒店仅4家，代码却答1133家且名单不符，属编造</td><td class='mono'>0.99</td></tr>
+<tr><td>游玩昆明湖之后，我打算和同学一起吃香辣牛肉面，有没有评分4分以上的餐馆呢？</td><td class='mono'>（代码未命中）库里 951 条 餐馆，没有满足 [{'field': 'name', 'op': 'eq', 'valu</td><td>库中确有故宫餐厅含香辣牛肉面且评分4.8，代码误判为无</td><td class='mono'>0.99</td></tr>
+<tr><td>好的，麻烦再推荐一家有辣子鸡，评分在4分以上的餐馆，谢谢。</td><td class='mono'>找到 3 家餐馆，按评分推荐前 3 家：
+1. 金玖食府｜评分 4.7｜人均消费 84｜营业时间 周一至周日 07:00</td><td>漏掉渝味村(4.0分含辣子鸡)，且Susu无辣子鸡，筛选不全</td><td class='mono'>0.98</td></tr>
+<tr><td>最后我要找个酒店住宿，想要经济型酒店，然后酒店评分要是5分，麻烦您给我找个。</td><td class='mono'>找到 410 家酒店，按评分推荐前 3 家：
+1. 7天优品酒店(北京国贸劲松地铁站店)｜评分 5.0｜价格 288
+2</td><td>第3家评分4.8不满足5分要求，混入了不合格项</td><td class='mono'>0.93</td></tr>
+<tr><td>护国寺小吃店（护国寺总店）都是小吃吧，电话是多少给我一下。这家店周边有什么可以玩</td><td class='mono'>护国寺小吃店（护国寺总店） 的周边景点（共 112 个，取前 3 个）：
+1. 故宫｜评分 4.7｜门票 60｜地址 北</td><td>周边景点正确，但用户问的电话未答（应为010-66181705）</td><td class='mono'>0.97</td></tr>
+<tr><td>不错啊，那它周边有景点吗？</td><td class='mono'>如家快捷酒店(北京顺义中心地铁站店) 的周边景点（共 5 个，取前 3 个）：
+1. 卧龙公园｜评分 5.0｜门票 0｜</td><td>对象错误，应回答江户前寿司周边景点，却答成如家酒店周边</td><td class='mono'>0.99</td></tr>
+<tr><td>嗯嗯，这家餐馆的周边都有哪些酒店啊？</td><td class='mono'>护国寺小吃店（护国寺总店） 的周边酒店（共 4 个，取前 3 个）：
+1. 北京天伦王朝酒店｜评分 4.5｜价格 815</td><td>用户问的是金鼎轩地坛店周边酒店，代码答成了护国寺小吃店周边</td><td class='mono'>0.99</td></tr>
+<tr><td>好的，给我推荐一家经济型有室内游泳设施的酒店。</td><td class='mono'>找到 456 家酒店，按评分推荐前 3 家：
+1. 7天优品酒店(北京国贸劲松地铁站店)｜评分 5.0｜价格 288
+2</td><td>库中无经济型带室内泳池酒店，代码却推荐无泳池酒店</td><td class='mono'>0.97</td></tr></tbody></table>
+    <div class="note">共同点：置信度全在 0.93–0.99（阈值拦不住）；指代类占 56%、菜名类占 22%。</div>
+  </div>
+
+  <div class="card"><h2>全量测试集（3525 条，无标签）</h2>
+    <table><thead><tr><th>项</th><th>数值</th></tr></thead><tbody>
+      <tr><td>走代码</td><td>1085（30.8%）</td></tr>
+      <tr><td>交大模型</td><td>2440（69.2%）</td></tr>
+      <tr><td>单次判定延时</td><td>中位 77 ms / p95 111 ms</td></tr>
+    </tbody></table>
+    <div class="note">真实流量里覆盖率 30.8%，低于评测集——全量包含大量闲聊、指代不明、多意图句。</div>
+  </div>
+
+  <div class="card"><h2>口径说明</h2>
+    <table><thead><tr><th>项</th><th>内容</th></tr></thead><tbody>
+      <tr><td>标签来源</td><td>DeepSeek agent 判官，可调用查库工具核验「代码回答是否正确」，400 条</td></tr>
+      <tr><td>代码版本</td><td>app/executor_frozen.py，SHA256 EB3C97FD…208CE（冻结后未改）</td></tr>
+      <tr><td>门控</td><td>4 个 MacBERT-large 种子模型（7/13/21/33），4/4 一致且最小 P(代码)≥0.90 才放行</td></tr>
+      <tr><td>局限</td><td>留出仅 120 条，7.5% 的 95% 置信区间约 2.8%–12.2%</td></tr>
+    </tbody></table>
+  </div>
+</div></body></html>

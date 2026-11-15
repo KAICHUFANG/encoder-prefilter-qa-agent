@@ -1,0 +1,328 @@
+{
+  "generated_at": "2026-11-12 17:57:22",
+  "test_size": 6032,
+  "assumptions": {
+    "llm_ms": 1200,
+    "llm_tokens": 1500,
+    "local_ms": 20,
+    "local_tokens": 0
+  },
+  "by_action": {
+    "llm": 6032
+  },
+  "no_llm_rate": 0.0,
+  "estimated": {
+    "latency_ms_all_llm": 7238400,
+    "latency_ms_routed": 7238400,
+    "tokens_all_llm": 9048000,
+    "tokens_routed": 9048000
+  },
+  "misrouting": {
+    "dangerous": 0,
+    "cheap": 0,
+    "to_human": 0,
+    "needs_review": 0
+  },
+  "samples": [
+    {
+      "text": "我在外面讲课能举例吗，符合条件吗？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我下午有点急事，我可以吗啊？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我上半年休了长假，有没有资格？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "公积金能提多少",
+      "true_intent": "other",
+      "pred_intent": "other",
+      "confidence": 0.9997,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "发票抬头开错了，走什么手续呀？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "咨询一下显示器故障了，流程是什么？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "有人问我们内部数据，找哪个部门嘛？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "想问一下我的评分比同事低，需要提前说吗呀？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "麻烦问下有个合同要盖章，需要提前说吗嘛？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "体检什么时候安排啊？",
+      "true_intent": "other",
+      "pred_intent": "other",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "请问我在外面接了个私活，有没有资格？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我手里活太多走不开，有没有资格",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "请问我开车去的，油费怎么算，标准是多少？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "请问公积金能提多少",
+      "true_intent": "other",
+      "pred_intent": "other",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "公司什么时候上市呀？",
+      "true_intent": "other",
+      "pred_intent": "other",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "请问我在高原项目上，能给多少？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "想问一下今年年终奖发多少呀？",
+      "true_intent": "other",
+      "pred_intent": "other",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我想在孩子出生后请一段，符合条件吗",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我在外面接了个私活，符合条件吗",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "想问一下上个月在外面跑了十几天，标准是多少呢？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "想问一下我不想去，我可以吗呀？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "结果什么时候公布，在哪提交嘛？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "朋友公司想跟我们合作，我可以吗？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "想问一下我最近老是被记迟到，找哪个部门呀？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我买了点竞品的股票，我可以吗啊？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "咨询一下能不能远程办公呢？",
+      "true_intent": "other",
+      "pred_intent": "other",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "屏幕坏了，走什么手续嘛？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "可以外放音乐吗，有没有资格？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我亲戚开了家供应商，符合条件吗",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "客户一行五个人，有没有上限？",
+      "true_intent": "code",
+      "pred_intent": "code",
+      "confidence": 0.9998,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    }
+  ]
+}

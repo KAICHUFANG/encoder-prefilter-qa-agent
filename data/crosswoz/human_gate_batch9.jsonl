@@ -1,0 +1,40 @@
+{"id": 321, "label": "llm", "reason": "「门票免费」未解析"}
+{"id": 322, "label": "llm", "reason": "命中门店但未返回地址"}
+{"id": 323, "label": "llm", "reason": "水立方周边无距离校验"}
+{"id": 324, "label": "llm", "reason": "「这个餐馆周边」指代缺失"}
+{"id": 325, "label": "llm", "reason": "「3-6天」被误解析成评分区间"}
+{"id": 326, "label": "code", "reason": "命中颐和园，门票 35 元，回答了是否免费"}
+{"id": 327, "label": "llm", "reason": "「泡菜汤」菜品未抽到"}
+{"id": 328, "label": "llm", "reason": "「周边好吃的菜馆」指代缺失"}
+{"id": 329, "label": "llm", "reason": "「这个景点电话/门票」指代缺失"}
+{"id": 330, "label": "llm", "reason": "「餐馆周边有酒店吗」指代缺失"}
+{"id": 331, "label": "llm", "reason": "周边无距离校验"}
+{"id": 332, "label": "llm", "reason": "北京饭店未在库中"}
+{"id": 333, "label": "llm", "reason": "「这个景点电话」指代缺失"}
+{"id": 334, "label": "llm", "reason": "「餐馆营业时间」指代缺失"}
+{"id": 335, "label": "code", "reason": "价格≥1000，16家，正确"}
+{"id": 336, "label": "llm", "reason": "「免费」未解析"}
+{"id": 337, "label": "llm", "reason": "「门票免费」未解析"}
+{"id": 338, "label": "llm", "reason": "贵都大酒店周边无距离校验"}
+{"id": 339, "label": "llm", "reason": "「免费」未解析，且跨域返回餐馆"}
+{"id": 340, "label": "llm", "reason": "「24小时热水/经济型」未解析，误抽游玩区间"}
+{"id": 341, "label": "llm", "reason": "「他家周边景点」指代缺失"}
+{"id": 342, "label": "llm", "reason": "「不免费的」是上文修正，需上下文"}
+{"id": 343, "label": "llm", "reason": "店名「99优选」的数字被当价格，0结果"}
+{"id": 344, "label": "llm", "reason": "「它家周边景点」指代缺失"}
+{"id": 345, "label": "code", "reason": "评分 5 分景点，137家，正确"}
+{"id": 346, "label": "llm", "reason": "「这个景点位置」指代缺失"}
+{"id": 347, "label": "llm", "reason": "「肉筋」菜品未抽到"}
+{"id": 348, "label": "llm", "reason": "这家餐馆周边无距离校验"}
+{"id": 349, "label": "llm", "reason": "「1、2个小时」被拆成多个误区间，0结果"}
+{"id": 350, "label": "llm", "reason": "百泉山附近无距离校验"}
+{"id": 351, "label": "llm", "reason": "出租域不支持"}
+{"id": 352, "label": "llm", "reason": "「餐馆周边酒店」指代缺失"}
+{"id": 353, "label": "llm", "reason": "「这个餐馆评分」指代缺失"}
+{"id": 354, "label": "llm", "reason": "「景点的电话」指代缺失"}
+{"id": 355, "label": "llm", "reason": "店名「巫山烤全鱼」被当菜品，0结果"}
+{"id": 356, "label": "llm", "reason": "指代错（refer 卢沟桥）"}
+{"id": 357, "label": "llm", "reason": "多域+周边无距离"}
+{"id": 358, "label": "llm", "reason": "口福居周边无距离校验"}
+{"id": 359, "label": "code", "reason": "人均100-150+评分≥4.5，19家，正确"}
+{"id": 360, "label": "llm", "reason": "「这个酒店周边餐馆」无距离校验"}

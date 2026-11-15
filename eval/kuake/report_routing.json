@@ -1,0 +1,330 @@
+{
+  "generated_at": "2026-11-05 16:04:31",
+  "test_size": 196,
+  "assumptions": {
+    "llm_ms": 1200,
+    "llm_tokens": 1500,
+    "local_ms": 20,
+    "local_tokens": 0
+  },
+  "by_action": {
+    "template": 24,
+    "llm": 158,
+    "kb": 14
+  },
+  "no_llm_rate": 0.1939,
+  "estimated": {
+    "latency_ms_all_llm": 235200,
+    "latency_ms_routed": 190360,
+    "tokens_all_llm": 294000,
+    "tokens_routed": 237000
+  },
+  "misrouting": {
+    "dangerous": 8,
+    "cheap": 6,
+    "to_human": 0,
+    "needs_review": 17
+  },
+  "samples": [
+    {
+      "text": "治不孕不育医院哪家好",
+      "true_intent": "就医建议",
+      "pred_intent": "就医建议",
+      "confidence": 0.9934,
+      "true_action": "template",
+      "action": "template",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "该怎么样治疗外阴白斑",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9928,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "您好，请问，甲状腺结节吃什么药好",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.993,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我应产后20天可以吃减肥药吗",
+      "true_intent": "注意事项",
+      "pred_intent": "注意事项",
+      "confidence": 0.9104,
+      "true_action": "template",
+      "action": "template",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "香丹清吃了对便秘有效果吗、多少钱一盒在哪能买到",
+      "true_intent": "医疗费用",
+      "pred_intent": "医疗费用",
+      "confidence": 0.9829,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "脑溢血前兆应该如何进行治疗",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9905,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "妊娠高血糖的危害？",
+      "true_intent": "后果表述",
+      "pred_intent": "后果表述",
+      "confidence": 0.969,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "甲状腺癌症切除的病人可以吃海参吗",
+      "true_intent": "注意事项",
+      "pred_intent": "注意事项",
+      "confidence": 0.9706,
+      "true_action": "template",
+      "action": "template",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "孩子对上学的恐惧心理怎样克服",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9751,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "血糖高，胆固醇高吃什么比较好",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.5611,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "幼年特发性关节炎如何保健护理",
+      "true_intent": "注意事项",
+      "pred_intent": "治疗方案",
+      "confidence": 0.7857,
+      "true_action": "template",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "如何治疗持续性胸部疼痛或模糊的背部疼痛？",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9876,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "我怀孕了但为什么还会出血血还蛮多的请问这是什么情况...",
+      "true_intent": "病情诊断",
+      "pred_intent": "病情诊断",
+      "confidence": 0.9686,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "受凉心里不舒服，该怎样做",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9846,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "雀斑的症状有什么呢、",
+      "true_intent": "疾病表述",
+      "pred_intent": "疾病表述",
+      "confidence": 0.9894,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "尿尿难受尿白色浑浊物是什么情况",
+      "true_intent": "病情诊断",
+      "pred_intent": "病情诊断",
+      "confidence": 0.967,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "有胃病.服构橼酸铋钾.奥美啦唑.。构橼酸铋钾_前半小时服..奥美啦唑有说同时服.有说_后半小时服.谁对？",
+      "true_intent": "其他",
+      "pred_intent": "其他",
+      "confidence": 0.6883,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "黄体酮胶丸饭后吃还是饭前吃？黄体酮胶丸饭后吃还是饭...",
+      "true_intent": "注意事项",
+      "pred_intent": "注意事项",
+      "confidence": 0.8338,
+      "true_action": "template",
+      "action": "template",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "宫颈炎吃什么药",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9923,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "足光散泡脚泡完一走路就疼怎么回事",
+      "true_intent": "病情诊断",
+      "pred_intent": "病情诊断",
+      "confidence": 0.9918,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "威海市治癫痫最有效的专科医院",
+      "true_intent": "就医建议",
+      "pred_intent": "就医建议",
+      "confidence": 0.9943,
+      "true_action": "template",
+      "action": "template",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "白癜风患者怎样保持病情稳定？",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.8978,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "请问37岁的女人记忆不好 吃什么可以增...",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.943,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "那个祛痣多少钱啊",
+      "true_intent": "医疗费用",
+      "pred_intent": "医疗费用",
+      "confidence": 0.9902,
+      "true_action": "kb",
+      "action": "kb",
+      "needs_llm": false,
+      "needs_review": false
+    },
+    {
+      "text": "什么叫处于功能位",
+      "true_intent": "其他",
+      "pred_intent": "疾病表述",
+      "confidence": 0.5923,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "上个月月经刚完第一天同房",
+      "true_intent": "病情诊断",
+      "pred_intent": "病情诊断",
+      "confidence": 0.622,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "小儿肺热的症状有哪些",
+      "true_intent": "疾病表述",
+      "pred_intent": "疾病表述",
+      "confidence": 0.9881,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "咨询一下寒冷性荨麻疹怎么治疗",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9919,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "右肝硬化左肝肿大",
+      "true_intent": "疾病表述",
+      "pred_intent": "疾病表述",
+      "confidence": 0.9174,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    },
+    {
+      "text": "心源性哮喘需要吃什么药？",
+      "true_intent": "治疗方案",
+      "pred_intent": "治疗方案",
+      "confidence": 0.9914,
+      "true_action": "llm",
+      "action": "llm",
+      "needs_llm": true,
+      "needs_review": false
+    }
+  ]
+}

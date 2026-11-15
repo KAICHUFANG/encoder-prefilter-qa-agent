@@ -1,0 +1,7 @@
+{
+    "frozen_at":  "2026-11-15 15:01:30",
+    "lines":  431,
+    "sha256":  "EB3C97FDCCEF8CE6F3EEAE7F7340A49C2C2494FDAC4B47C58304D865EE7208CE",
+    "file":  "app/executor_frozen.py",
+    "note":  "门控标签与训练均基于此冻结版本；之后修改 executor.py 不影响已有标签"
+}
