@@ -26,9 +26,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import config
 
-ENSEMBLE_DIR = config.PROJ / "models" / "_ensemble"
+ENSEMBLE_DIR = config.PROJ / "models" / "_ensemble_full"
 SEEDS = (7, 13, 21, 33)
-DEFAULT_THRESHOLD = 0.90
+DEFAULT_THRESHOLD = 0.50
 
 
 def _softmax(logits: list[float]) -> list[float]:

@@ -19,11 +19,11 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 PROJ = HERE.parent
 
-ROUTING = PROJ / "eval" / "ensemble_routing_400.jsonl"
-LABELS = PROJ / "data" / "crosswoz_gate_v2" / "_progress.jsonl"
+ROUTING = PROJ / "eval" / "ensemble_routing_full.jsonl"
+LABELS = PROJ / "data" / "crosswoz_gate_full" / "_progress.jsonl"
 FULL = PROJ / "eval" / "ensemble_routing_3525.jsonl"
 OUT = PROJ / "reports" / "dashboard.html"
-THRESHOLD = 0.90
+THRESHOLD = 0.50
 
 
 def load_jsonl(path: Path) -> list[dict]:
@@ -58,8 +58,10 @@ def main() -> int:
 
     held = [r for r in routing if r["split"] in ("dev", "test")]
     n = len(held)
+    dev_n = sum(1 for r in held if r["split"] == "dev")
+    test_n = n - dev_n
     if n == 0:
-        print("缺少 eval/ensemble_routing_400.jsonl，先跑集成评估")
+        print("缺少 eval/ensemble_routing_full.jsonl，先跑 eval/eval_full_gate.py")
         return 1
 
     cells: Counter = Counter()
@@ -76,7 +78,7 @@ def main() -> int:
     waste = cells["llm_bad"] / n * 100
 
     rules = [
-        ("4/4 一致 + p≥0.90（当前）", *vote_rule(held, 4, THRESHOLD)),
+        ("4/4 一致 + p≥0.50（当前）", *vote_rule(held, 4, THRESHOLD)),
         ("4/4 一致（不限置信度）", *vote_rule(held, 4, None)),
         ("≥3/4 判代码", *vote_rule(held, 3, None)),
         ("≥2/4 判代码", *vote_rule(held, 2, None)),
@@ -128,7 +130,7 @@ def main() -> int:
   .note {{ color:var(--dim); font-size:12px; margin-top:10px; }}
 </style></head><body><div class="wrap">
   <h1>encoder-only 预筛 · 门控实验面板</h1>
-  <div class="sub">CrossWOZ 真实问句 400 条（留出 {n}）· DeepSeek agent 判官标注 · 4×MacBERT-large 集成（4/4 一致且 p≥0.90）</div>
+  <div class="sub">CrossWOZ 全量 3,525 条标注 · 留出 {n} 条（dev {dev_n} / test {test_n}）· 4×MacBERT-large 集成（4/4 一致且 p≥0.50）</div>
 
   <div class="kpis">
     <div class="kpi"><div class="label">错给代码（危险）</div><div class="value" style="color:var(--red)">{err_rate:.1f}%</div>
@@ -152,7 +154,7 @@ def main() -> int:
   <div class="card"><h2>放行规则对比</h2>
     <table><thead><tr><th>规则</th><th>走代码</th><th>覆盖率</th><th>路由准确率</th><th>错给代码（占全部）</th></tr></thead>
     <tbody>{rule_html}</tbody></table>
-    <div class="note">放宽投票能提高覆盖率，但错误率同步上升，所以当前用最严的 4/4 + 0.90。</div>
+    <div class="note">全量数据下 4/4 一致本身已足够可靠，阈值取 0.50 即可；调高阈值以牺牲覆盖换更低错误率（0.85 时错给代码约 2.4%）。</div>
   </div>
 
   <div class="card"><h2>{len(errs)} 条错给代码的案例</h2>
@@ -172,9 +174,9 @@ def main() -> int:
 
   <div class="card"><h2>口径说明</h2>
     <table><thead><tr><th>项</th><th>内容</th></tr></thead><tbody>
-      <tr><td>标签来源</td><td>DeepSeek agent 判官，可调用查库工具核验「代码回答是否正确」，400 条</td></tr>
+      <tr><td>标签来源</td><td>DeepSeek agent 判官，逐条调工具核验「代码回答是否正确」，全量 3,522 条</td></tr>
       <tr><td>代码版本</td><td>app/executor_frozen.py，SHA256 EB3C97FD…208CE（冻结后未改）</td></tr>
-      <tr><td>门控</td><td>4 个 MacBERT-large 种子模型（7/13/21/33），4/4 一致且最小 P(代码)≥0.90 才放行</td></tr>
+      <tr><td>门控</td><td>4 个 MacBERT-large 种子模型（全量 2,469 条训练），4/4 一致且最小 P(代码)≥0.50 才放行</td></tr>
       <tr><td>局限</td><td>留出仅 {n} 条，{err_rate:.1f}% 的 95% 置信区间约 2.8%–12.2%</td></tr>
     </tbody></table>
   </div>

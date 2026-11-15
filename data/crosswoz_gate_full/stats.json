@@ -1,0 +1,11 @@
+{
+  "total": 3522,
+  "dialogs": 500,
+  "splits": {
+    "train": 2469,
+    "dev": 534,
+    "test": 519
+  },
+  "code_rate": 0.4948892674616695,
+  "avg_tool_rounds": 2.2632027257240206
+}
