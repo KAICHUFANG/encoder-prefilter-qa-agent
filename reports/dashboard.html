@@ -30,88 +30,39 @@
   .note { color:var(--dim); font-size:12px; margin-top:10px; }
 </style></head><body><div class="wrap">
   <h1>encoder-only 预筛 · 门控实验面板</h1>
-  <div class="sub">CrossWOZ 全量 3,525 条标注 · 留出 1053 条（dev 534 / test 519）· 4×MacBERT-large 集成（4/4 一致且 p≥0.50）</div>
+  <div class="sub">CrossWOZ 全量 3,525 条标注 · 测试集 519 条（dev 0 条仅用于选阈值）· 4×MacBERT-large 集成（4/4 一致且 p≥0.50）</div>
 
   <div class="kpis">
-    <div class="kpi"><div class="label">错给代码（危险）</div><div class="value" style="color:var(--red)">4.9%</div>
-      <div class="hint">占全部请求 · 52/1053</div></div>
+    <div class="kpi"><div class="label">错给代码（危险）</div><div class="value" style="color:var(--red)">5.0%</div>
+      <div class="hint">占全部请求 · 26/519</div></div>
     <div class="kpi"><div class="label">代码路由准确率</div><div class="value" style="color:var(--green)">89%</div>
-      <div class="hint">走代码 457 条中答对</div></div>
-    <div class="kpi"><div class="label">覆盖率</div><div class="value">43%</div>
-      <div class="hint">457/1053 请求由代码处理、0 token</div></div>
+      <div class="hint">走代码 228 条中答对</div></div>
+    <div class="kpi"><div class="label">覆盖率</div><div class="value">44%</div>
+      <div class="hint">228/519 请求由代码处理、0 token</div></div>
     <div class="kpi"><div class="label">判定延时</div><div class="value">77<span style="font-size:14px"> ms</span></div>
       <div class="hint">4 模型串行 · p95 111 ms</div></div>
   </div>
 
-  <div class="card"><h2>判定分布（留出 1053 条）</h2>
-    <div class="bar-row"><span class="bar-label">正确给代码</span><span class="bar-track"><span class="bar-fill" style="width:38.5%;background:var(--green)"></span></span><span class="bar-value">405（38.5%）</span></div>
-    <div class="bar-row"><span class="bar-label">错给代码（危险）</span><span class="bar-track"><span class="bar-fill" style="width:4.9%;background:var(--red)"></span></span><span class="bar-value">52（4.9%）</span></div>
-    <div class="bar-row"><span class="bar-label">正确给模型</span><span class="bar-track"><span class="bar-fill" style="width:42.7%;background:var(--blue)"></span></span><span class="bar-value">450（42.7%）</span></div>
-    <div class="bar-row"><span class="bar-label">该给代码却给模型（浪费）</span><span class="bar-track"><span class="bar-fill" style="width:13.9%;background:var(--amber)"></span></span><span class="bar-value">146（13.9%）</span></div>
-    <div class="note">关键指标是红色那条：<b>只有 4.9% 的请求会被代码答错</b>。宁可多交模型（黄色 13.9%），也不要把错误答案放出去。</div>
+  <div class="card"><h2>判定分布（test 519 条）</h2>
+    <div class="bar-row"><span class="bar-label">正确给代码</span><span class="bar-track"><span class="bar-fill" style="width:38.9%;background:var(--green)"></span></span><span class="bar-value">202（38.9%）</span></div>
+    <div class="bar-row"><span class="bar-label">错给代码（危险）</span><span class="bar-track"><span class="bar-fill" style="width:5.0%;background:var(--red)"></span></span><span class="bar-value">26（5.0%）</span></div>
+    <div class="bar-row"><span class="bar-label">正确给模型</span><span class="bar-track"><span class="bar-fill" style="width:43.0%;background:var(--blue)"></span></span><span class="bar-value">223（43.0%）</span></div>
+    <div class="bar-row"><span class="bar-label">该给代码却给模型（浪费）</span><span class="bar-track"><span class="bar-fill" style="width:13.1%;background:var(--amber)"></span></span><span class="bar-value">68（13.1%）</span></div>
+    <div class="note">关键指标是红色那条：<b>只有 5.0% 的请求会被代码答错</b>。宁可多交模型（黄色 13.1%），也不要把错误答案放出去。</div>
   </div>
 
   <div class="card"><h2>放行规则对比</h2>
     <table><thead><tr><th>规则</th><th>走代码</th><th>覆盖率</th><th>路由准确率</th><th>错给代码（占全部）</th></tr></thead>
-    <tbody><tr><td>4/4 一致 + p≥0.50（当前）</td><td>457</td><td>43%</td><td>89%</td><td>4.9%</td></tr>
-<tr><td>4/4 一致（不限置信度）</td><td>457</td><td>43%</td><td>89%</td><td>4.9%</td></tr>
-<tr><td>≥3/4 判代码</td><td>543</td><td>52%</td><td>85%</td><td>7.6%</td></tr>
-<tr><td>≥2/4 判代码</td><td>612</td><td>58%</td><td>81%</td><td>11.1%</td></tr></tbody></table>
+    <tbody><tr><td>4/4 一致 + p≥0.50（当前）</td><td>228</td><td>44%</td><td>89%</td><td>5.0%</td></tr>
+<tr><td>4/4 一致（不限置信度）</td><td>228</td><td>44%</td><td>89%</td><td>5.0%</td></tr>
+<tr><td>≥3/4 判代码</td><td>269</td><td>52%</td><td>85%</td><td>7.7%</td></tr>
+<tr><td>≥2/4 判代码</td><td>304</td><td>59%</td><td>80%</td><td>11.9%</td></tr></tbody></table>
     <div class="note">全量数据下 4/4 一致本身已足够可靠，阈值取 0.50 即可；调高阈值以牺牲覆盖换更低错误率（0.85 时错给代码约 2.4%）。</div>
   </div>
 
-  <div class="card"><h2>52 条错给代码的案例</h2>
+  <div class="card"><h2>26 条错给代码的案例</h2>
     <table><thead><tr><th>用户问题</th><th>代码回答（截断）</th><th>判官结论</th><th>min P</th></tr></thead>
-    <tbody><tr><td>你好，帮我推荐一个能提供叫醒服务的酒店，谢谢。</td><td class='mono'>是，有 1004 家满足条件。
-找到 1004 家酒店，按评分推荐前 3 家：
-1. 北京丰荣君华酒店｜评分 5.0
-2</td><td>首推的北京丰荣君华酒店无叫醒服务，不满足条件</td><td class='mono'>0.64</td></tr>
-<tr><td>好吧，游玩结束后，我打算找一个人均消费100-150元，评分4.5分以上的餐馆用</td><td class='mono'>是，有 55 家满足条件。
-找到 55 家餐馆，按评分推荐前 3 家：
-1. 海底捞火锅｜评分 5.0｜人均消费 120</td><td>推荐三家符合条件，但称55家系编造，实际仅约5家</td><td class='mono'>0.88</td></tr>
-<tr><td>这餐馆的营业时间是？</td><td class='mono'>找到 951 家餐馆，按评分推荐前 3 家：
-1. 海底捞火锅(西单店)｜营业时间 周一至周日 09:00-07:00｜</td><td>用户问小吊梨汤营业时间，代码答非所问推荐了其他餐馆</td><td class='mono'>0.87</td></tr>
-<tr><td>我打算出去玩，给我推荐一个可以游玩1小时的景点吧！</td><td class='mono'>找到 182 家景点，按评分推荐前 3 家：
-1. 红砖美术馆｜评分 5.0｜游玩时间 1小时 - 2小时
-2. 养心殿</td><td>国家图书馆游玩1-2小时，不满足1小时；红砖美术馆亦为1-2小时</td><td class='mono'>0.63</td></tr>
-<tr><td>便宜坊烤鸭店听起来不错，电话是多少？</td><td class='mono'>找到 6 家餐馆，按评分推荐前 3 家：
-1. 便宜坊烤鸭店(顺义店)｜电话 89462860,89462870｜评分 </td><td>用户问的是新世界店，代码答成其他分店，电话错误</td><td class='mono'>0.87</td></tr>
-<tr><td>请帮我找一个最低价格是200-300元的豪华型酒店，谢谢！</td><td class='mono'>（代码未命中）库里 1133 条 酒店，没有满足 [{'field': '酒店类型', 'op': 'contains'</td><td>库中确有5家豪华型酒店价格在200-300元，代码误称无结果</td><td class='mono'>0.93</td></tr>
-<tr><td>你好，你可以帮我找一家票价在150-200元的，评分在4.5分以上的景点吗？</td><td class='mono'>是，有 6 家满足条件。
-找到 6 家景点，按评分推荐前 3 家：
-1. 水立方嬉水乐园｜评分 5.0｜门票 200｜游</td><td>实际符合条件为5家，代码称6家数量错误</td><td class='mono'>0.95</td></tr>
-<tr><td>酒店周边有啥可以吃饭的餐馆吗？</td><td class='mono'>八大处公园 的周边餐馆（共 2 个，取前 2 个）：
-1. 海底捞火锅(喜隆多店)｜人均消费 132｜地址 阜石路300</td><td>问的是酒店周边餐馆，代码却答八大处公园周边，且多出海底捞</td><td class='mono'>0.85</td></tr>
-<tr><td>嗯嗯，这个餐馆的营业时间是咋样的，我和对象安排下时间。</td><td class='mono'>红红火火巴乡石锅鱼：营业时间 周一至周日 10:00-22:00</td><td>问的是玉林串串香营业时间(11:00-22:00)，答成了周边另一家</td><td class='mono'>0.79</td></tr>
-<tr><td>南海子麋鹿苑的就近有啥好吃的餐厅吗，提前找好了，省的到时候饿急眼了。</td><td class='mono'>（代码未命中）库里 951 条 餐馆，没有满足 [{'field': 'name', 'op': 'eq', 'valu</td><td>库中南海子麋鹿苑有29家周边餐馆，代码却称未命中</td><td class='mono'>0.91</td></tr>
-<tr><td>游玩昆明湖之后，我打算和同学一起吃香辣牛肉面，有没有评分4分以上的餐馆呢？</td><td class='mono'>（代码未命中）库里 951 条 餐馆，没有满足 [{'field': 'name', 'op': 'eq', 'valu</td><td>库中确有故宫餐厅含香辣牛肉面且评分4.8，代码误判为无</td><td class='mono'>0.65</td></tr>
-<tr><td>再帮我找个景点，票价20元以下，可以玩3小时 - 4小时，评分是4.5分以上的，</td><td class='mono'>找到 16 家景点，按评分推荐前 3 家：
-1. 小汤山镇｜评分 5.0｜门票 0｜游玩时间 3天
-2. 房山世界地质公</td><td>推荐景点游玩时间3天，不符3-4小时条件</td><td class='mono'>0.51</td></tr>
-<tr><td>你好，帮我找一家人均消费在50-100元，油麦菜做的好的餐馆。</td><td class='mono'>找到 7 家餐馆，按评分推荐前 3 家：
-1. 千汇丰渝州干锅鸭头｜人均消费 82｜评分 5.0｜营业时间 周一至周日 </td><td>实际8家符合，代码称7家且漏列评分更高的阳坊、雁栖仙翁等</td><td class='mono'>0.91</td></tr>
-<tr><td>好的。接到领导要和他吃点便饭，想找一家评分是4.5分以上、人均消费是100-15</td><td class='mono'>是，有 55 家满足条件。
-找到 55 家餐馆，按评分推荐前 3 家：
-1. 海底捞火锅｜评分 5.0｜人均消费 120</td><td>称55家系编造，实际仅约2家符合条件</td><td class='mono'>0.86</td></tr>
-<tr><td>好，那景点周边有餐馆吗？</td><td class='mono'>（代码未命中）库里没有 北京布提克精品酒店 的周边餐馆数据</td><td>蟹岛嘉年华周边确有2家餐馆，代码称无数据错误</td><td class='mono'>0.51</td></tr>
-<tr><td>收到，那你知道这个餐馆的营业时间吗？</td><td class='mono'>阳坊胜利涮羊肉(晋元庄店)：营业时间 周一至周日 10:00-22:00</td><td>用户问的是蓝海钟鼎楼食府，代码答成了阳坊胜利涮羊肉</td><td class='mono'>0.83</td></tr>
-<tr><td>你好，请给我推荐一家人均消费50-100元的餐馆吃烤全羊、烤羊背这俩菜。</td><td class='mono'>找到 4 家餐馆，按评分推荐前 3 家：
-1. 呼伦贝尔草原蒙古包美食｜人均消费 57｜评分 5.0｜营业时间 11:0</td><td>三家均无烤羊背，唯一有烤羊背的九十九顶毡房人均220超预算，未满足双</td><td class='mono'>0.78</td></tr>
-<tr><td>完事我还要找个4.5分以上的餐馆，然后餐馆的推荐菜要有枣糕牛舌饼。</td><td class='mono'>（代码未命中）库里 951 条 餐馆，没有满足 [{'field': '推荐菜', 'op': 'contains', </td><td>库中稻香村灯市口店5.0分且推荐菜含松仁枣糕、牛舌饼，代码误判无结果</td><td class='mono'>0.55</td></tr>
-<tr><td>餐馆的周边有哪些餐馆啊？</td><td class='mono'>北京首都宾馆 的周边餐馆（共 134 个，取前 3 个）：
-1. 护国寺小吃店（护国寺总店）｜评分 4.3｜人均消费 2</td><td>对象错：用户问的是四季民福周边餐馆，代码答成首都宾馆周边</td><td class='mono'>0.88</td></tr>
-<tr><td>好的，游玩结束后我想找一个餐馆，想吃精品烤鸭，最好人均消费在100元到150元之</td><td class='mono'>找到 2 家餐馆，按评分推荐前 2 家：
-1. 全聚德烤鸭店(奥运村店)｜人均消费 150｜评分 4.5｜营业时间 10</td><td>第二家评分3.5不满足4.5分条件，且漏掉多家符合的店</td><td class='mono'>0.81</td></tr>
-<tr><td>智化寺的电话是多少，好久没拜拜佛了，我们哥俩都想去。</td><td class='mono'>（代码未命中）库里 951 条 餐馆，没有满足 [{'field': 'name', 'op': 'eq', 'valu</td><td>智化寺存在且电话010-65253670，代码误在餐馆库查而称未命中</td><td class='mono'>0.86</td></tr>
-<tr><td>看着我都快流口水了，用餐结束后，帮我们找个经济型的酒店，我希望它的评分是4.5分</td><td class='mono'>北京天伦王朝酒店：评分 4.5</td><td>天伦王朝是豪华型非经济型，且未按经济型+4.5筛选</td><td class='mono'>0.95</td></tr>
-<tr><td>吃完饭我想找个一个门票价格在200元以上的景点游玩，给推荐一个吧。</td><td class='mono'>找到 7 家景点，按评分推荐前 3 家：
-1. 水立方嬉水乐园｜门票 200｜评分 5.0｜游玩时间 3小时
-2. 篱苑</td><td>库中门票&gt;200的景点仅温都水城温泉(298)，代码所列篱苑图书馆、</td><td class='mono'>0.95</td></tr>
-<tr><td>你好，我想去酒店住宿。请帮我找一家评分是4.5分以上的酒店，这家酒店最好有吹风机</td><td class='mono'>（代码未命中）问句用“这家/它”指代，但无法确定指代的门店</td><td>无多轮指代，用户是首问，代码误判未命中，实际有多家符合条件</td><td class='mono'>0.70</td></tr>
-<tr><td>恩，吃饱饭想去消化食去。帮我推荐一个评分是4.5分以上，票价是100-150元的</td><td class='mono'>找到 2 家景点，按评分推荐前 2 家：
-1. 北京杜莎夫人蜡像馆｜评分 4.8｜门票 145｜游玩时间 2小时 - 3</td><td>杜莎夫人游玩2-3小时超2小时，且漏掉红砖美术馆等符合条件项</td><td class='mono'>0.60</td></tr>
-<tr><td>吃完饭我要去99优选酒店(北京蓟门桥店)住宿，请告诉我这家酒店的价格是多少钱啊？</td><td class='mono'>（代码未命中）库里 1133 条 酒店，没有满足 [{'field': 'name', 'op': 'eq', 'val</td><td>该酒店存在，价格202元，代码误称无此店</td><td class='mono'>0.68</td></tr>
-<tr><td>您好，我要去先声画廊看画展，请问它的电话和评分是多少呢？</td><td class='mono'>先声画廊：电话 010-59789888</td><td>电话正确，但未回答评分（库中无评分字段）</td><td class='mono'>0.93</td></tr>
+    <tbody><tr><td>您好，我要去先声画廊看画展，请问它的电话和评分是多少呢？</td><td class='mono'>先声画廊：电话 010-59789888</td><td>电话正确，但未回答评分（库中无评分字段）</td><td class='mono'>0.93</td></tr>
 <tr><td>收到，你知道景点周边都有什么餐馆吗？</td><td class='mono'>房山世界地质公园 的周边餐馆（共 18 个，取前 3 个）：
 1. 石花洞石花楼餐厅｜评分 4.0｜人均消费 49｜地址</td><td>对象错误，应查十渡孤山寨周边（水云间、四渡餐厅），却答成房山世界地质</td><td class='mono'>0.96</td></tr>
 <tr><td>好吧，那你帮我们找个有馋嘴蛙这个菜的餐馆，我们希望餐馆的评分是4.5分以上，我们</td><td class='mono'>如家商旅酒店(北京牡丹园地铁站店)：评分 5.0</td><td>用户问餐馆，代码却答酒店评分，未回答馋嘴蛙餐馆</td><td class='mono'>0.54</td></tr>
@@ -180,7 +131,7 @@
       <tr><td>标签来源</td><td>DeepSeek agent 判官，逐条调工具核验「代码回答是否正确」，全量 3,522 条</td></tr>
       <tr><td>代码版本</td><td>app/executor_frozen.py，SHA256 EB3C97FD…208CE（冻结后未改）</td></tr>
       <tr><td>门控</td><td>4 个 MacBERT-large 种子模型（全量 2,469 条训练），4/4 一致且最小 P(代码)≥0.50 才放行</td></tr>
-      <tr><td>局限</td><td>留出仅 1053 条，4.9% 的 95% 置信区间约 2.8%–12.2%</td></tr>
+      <tr><td>局限</td><td>test 仅 519 条，5.0% 的 95% 置信区间约 3.1%–6.9%</td></tr>
     </tbody></table>
   </div>
 </div></body></html>

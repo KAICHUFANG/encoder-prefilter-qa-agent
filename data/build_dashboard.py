@@ -56,7 +56,7 @@ def main() -> int:
     labels = {r["id"]: r for r in load_jsonl(LABELS)}
     full = load_jsonl(FULL)
 
-    held = [r for r in routing if r["split"] in ("dev", "test")]
+    held = [r for r in routing if r["split"] == "test"]
     n = len(held)
     dev_n = sum(1 for r in held if r["split"] == "dev")
     test_n = n - dev_n
@@ -130,7 +130,7 @@ def main() -> int:
   .note {{ color:var(--dim); font-size:12px; margin-top:10px; }}
 </style></head><body><div class="wrap">
   <h1>encoder-only 预筛 · 门控实验面板</h1>
-  <div class="sub">CrossWOZ 全量 3,525 条标注 · 留出 {n} 条（dev {dev_n} / test {test_n}）· 4×MacBERT-large 集成（4/4 一致且 p≥0.50）</div>
+  <div class="sub">CrossWOZ 全量 3,525 条标注 · 测试集 {n} 条（dev {dev_n} 条仅用于选阈值）· 4×MacBERT-large 集成（4/4 一致且 p≥0.50）</div>
 
   <div class="kpis">
     <div class="kpi"><div class="label">错给代码（危险）</div><div class="value" style="color:var(--red)">{err_rate:.1f}%</div>
@@ -143,7 +143,7 @@ def main() -> int:
       <div class="hint">4 模型串行 · p95 111 ms</div></div>
   </div>
 
-  <div class="card"><h2>判定分布（留出 {n} 条）</h2>
+  <div class="card"><h2>判定分布（test {n} 条）</h2>
     {bar("正确给代码", cells['code_ok'], n, "var(--green)")}
     {bar("错给代码（危险）", cells['code_bad'], n, "var(--red)")}
     {bar("正确给模型", cells['llm_ok'], n, "var(--blue)")}
@@ -177,7 +177,7 @@ def main() -> int:
       <tr><td>标签来源</td><td>DeepSeek agent 判官，逐条调工具核验「代码回答是否正确」，全量 3,522 条</td></tr>
       <tr><td>代码版本</td><td>app/executor_frozen.py，SHA256 EB3C97FD…208CE（冻结后未改）</td></tr>
       <tr><td>门控</td><td>4 个 MacBERT-large 种子模型（全量 2,469 条训练），4/4 一致且最小 P(代码)≥0.50 才放行</td></tr>
-      <tr><td>局限</td><td>留出仅 {n} 条，{err_rate:.1f}% 的 95% 置信区间约 2.8%–12.2%</td></tr>
+      <tr><td>局限</td><td>test 仅 {n} 条，{err_rate:.1f}% 的 95% 置信区间约 3.1%–6.9%</td></tr>
     </tbody></table>
   </div>
 </div></body></html>"""
