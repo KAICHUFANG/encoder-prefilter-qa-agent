@@ -153,8 +153,13 @@ $env:INTENT_DATASET="crosswoz_gate_full"
 
 ## 9. 模型权重（百度网盘）
 
-权重约 7.5 GB，超过 GitHub 单文件上限（100 MB），放在百度网盘：
-**见 [`模型下载说明.md`](模型下载说明.md)**（含目录结构、校验值、放回路径）。
+权重约 4.9 GB，超过 GitHub 单文件上限（100 MB），放在百度网盘：
+
+- 链接：https://pan.baidu.com/s/10TO9PSAzSfTTjgGMJdxsfA?pwd=qnkj
+- 提取码：**qnkj**
+- 内容：`_ensemble_full/`（4 个种子模型）
+
+详细说明（目录结构、SHA256、放回路径）见 [`模型下载说明.md`](模型下载说明.md)。
 
 不下载也能核对结论：仓库里已包含逐条路由结果与面板。
 ## 10. 说明
